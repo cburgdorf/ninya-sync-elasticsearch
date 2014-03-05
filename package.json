@@ -1,8 +1,8 @@
 {
-  "name": "stackwho-server",
-  "version": "0.0.0",
+  "name": "ninya-sync-elasticsearch",
+  "version": "0.1.0",
   "description": "the backend for the stackwho app",
-  "main": "web.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

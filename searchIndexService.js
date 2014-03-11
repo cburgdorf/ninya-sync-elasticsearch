@@ -19,8 +19,8 @@ var SearchIndexService = function(options){
 
     var iterationCount = 0;
 
-    var createIndex = function(searchOptions, fn){
-        var deferred = Q.defer();
+    var createIndex = function(deferred){
+        var deferred = deferred || Q.defer();
 
         var sql = 'SELECT * FROM ' + TABLE_NAME + ' WHERE ("user"->>\'_ninya_io_synced\')::boolean is null LIMIT ' + BATCH_SIZE;
 
@@ -84,7 +84,7 @@ var SearchIndexService = function(options){
                         console.log('ElasticSearchSync: flagged batch as processed');
                         console.log('ElasticSearchSync: finished ' + iterationCount + ' iteration(s)');
                         //start over
-                        createIndex();
+                        createIndex(deferred);
                     });
                  }, rejectWithError);
             });

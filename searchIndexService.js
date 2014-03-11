@@ -55,7 +55,7 @@ var SearchIndexService = function(options){
 
                 var tasks = result.rows.map(function(obj){
 
-                    obj.user._ninya_location = obj.user.location.toLowerCase();
+                    obj.user._ninya_location = obj.user.location && obj.user.location.toLowerCase();
 
                     return esClient.index({
                         index: 'production',

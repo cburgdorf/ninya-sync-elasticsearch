@@ -56,11 +56,14 @@ var SearchIndexService = function(options){
                 var tasks = result.rows.map(function(obj){
 
                     obj.user._ninya_location = obj.user.location && obj.user.location.toLowerCase();
+                    obj.user._ninya_site = options.stackexchangeSite;
+
+                    var esId = options.stackexchangeSite + '_' + obj.user.user_id;
 
                     return esClient.index({
-                        index: 'production',
+                        index: options.elasticsearchIndex,
                         type: 'user',
-                        id: obj.user.user_id,
+                        id: esId,
                         body: obj.user
                     });
                 });

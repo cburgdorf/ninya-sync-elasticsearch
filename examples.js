@@ -14,13 +14,13 @@
             "_ninya_site": {
                 "type": "string"
             },
-            "tags": {
+            "top_tags": {
                 "type": "nested",
                 "properties": {
                     "tag_name": {
                         "type": "string"
                     },
-                    "score": {
+                    "answer_score": {
                         "type": "integer"
                     }
                 }

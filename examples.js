@@ -7,6 +7,13 @@
             "location": {
                 "type": "string"
             },
+            "_ninya_location_lowercase": {
+                "type": "string",
+                "index": "not_analyzed"
+            },
+            "_ninya_site": {
+                "type": "string"
+            },
             "tags": {
                 "type": "nested",
                 "properties": {

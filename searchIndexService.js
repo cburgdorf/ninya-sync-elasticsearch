@@ -55,7 +55,8 @@ var SearchIndexService = function(options){
 
                 var tasks = result.rows.map(function(obj){
 
-                    obj.user._ninya_location = obj.user.location && obj.user.location.toLowerCase();
+                    obj.user._ninya_location_lowercase = obj.user.location && obj.user.location.toLowerCase();
+                    obj.user._ninya_location = obj.user.location;
                     obj.user._ninya_site = options.stackexchangeSite;
 
                     var esId = options.stackexchangeSite + '_' + obj.user.user_id;

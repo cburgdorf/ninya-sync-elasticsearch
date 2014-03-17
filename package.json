@@ -1,6 +1,6 @@
 {
   "name": "ninya-sync-elasticsearch",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "the elasticsearch sync for ninya.io",
   "main": "index.js",
   "scripts": {

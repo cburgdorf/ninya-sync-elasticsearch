@@ -22,7 +22,7 @@ var SearchIndexService = function(options){
     var createIndex = function(deferred){
         var deferred = deferred || Q.defer();
 
-        var sql = 'SELECT * FROM ' + TABLE_NAME + ' WHERE ("user"->>\'_ninya_io_synced\')::boolean is null LIMIT ' + BATCH_SIZE;
+        var sql = 'SELECT * FROM ' + TABLE_NAME + ' WHERE ("user"->>\'_ninya_synced\')::boolean is null LIMIT ' + BATCH_SIZE;
 
         var rejectWithError = function(err){
             console.log('ElasticSearchSync: error ->' + err);
@@ -75,7 +75,7 @@ var SearchIndexService = function(options){
                     //mark batch as synced
                     return Q.all(result.rows.map(function(obj){
                         var user = obj.user;
-                        user._ninya_io_synced = true;
+                        user._ninya_synced = true;
                         return client.query('UPDATE ' + TABLE_NAME + ' SET "user" = $1 WHERE "user"->>\'user_id\' = \'' + user.user_id  + '\'', [user], function(err, result) {
                             if (err){
                                 console.log(err);
